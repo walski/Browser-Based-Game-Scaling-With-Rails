@@ -1,0 +1,19 @@
+h1=. Scalability of web applications with Ruby on Rails
+
+h3=. in comparison to an existing Massively Multiplayer Online Browser-Based Game
+
+p=. Bachelor Report - B.Sc. Computer Science
+    
+p=. Universität Bremen / AG Rechnernetze
+
+p=. Thorben Schröder (walski@tzi.de)
+
+p=. Tutor: Carsten Bormann (cabo@tzi.de)
+
+h2. Introduction
+
+p.  In this paper I will explore if it is possible to develop a 
+    Massively Multiplayer Online Browser-Based Game (MMOBG) with Ruby and Rails
+    which is able to handle the same load as the existing MMOBG 
+    "Tribal Wars":http://www.tribalwars.net/ while not exceeding the costs of
+    operation of Tribal Wars.
