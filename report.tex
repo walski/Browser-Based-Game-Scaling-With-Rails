@@ -43,5 +43,49 @@
   unumgänglich machen wird das Simulieren von Lasten mit Faban zunächst zu 
   Gunsten der Evaluierung anderer Systeme aufgegeben.
   
+  \subsubsection{Apache Bench - ab}
+  \url{http://httpd.apache.org/docs/2.0/programs/ab.html}
+  Apache Bench (\textit{ab}) ist ein Kommandozeilen Programm, dass es auf einfache Weise
+  erlaubt einen Benchmark auf eine einzelne Ressource per HTTP durchzuführen.
+  \textit{ab} misst dabei vor allem die Auslieferungszeit der Ressource und errechnet
+  einige Hilfswerte wie zum Beispiel die bedienten Anfragen pro Sekunde.
+  Auch wenn \textit{ab} die vorgestellte Aufgabe gut erfüllt eignet es sich nur sehr
+  eingeschränkt für das Testen einer Folge von Ressourcen, wie es im Lastmodell
+  dieser Arbeit vorgesehen ist. Der einzige Weg mit \textit{ab} solche Folgen 
+  abzuarbeiten wäre es für jede Ressource einen neuen \textit{ab} Prozess zu starten, was
+  untereinander zu Problemen bei der Synchronisierung führen würde, 
+  schwer zu kontrollieren wäre und zudem den Nachteil hätte, dass die Ergebnisse
+  schwer zusammenführen sind.
+  
+  Aus diesen Gründen wird vom Gebrauch von \textit{ab} als Lastsimulator für diese Arbeit
+  abgesehen.
+  
+  \subsubsection{httperf}
+  \url{http://www.hpl.hp.com/research/linux/httperf/}
+  httperf ist, ähnlich wie \textit{ab}, ein Kommandozweilen Werkzeug zum
+  Durchführen von Benchmarks per HTTP. Auch die dabei gemessenen Werte ähneln
+  denen von \textit{ab}. Im Gegensatz zu \textit{ab} erlaubt httperf allerdings
+  nicht nur das Benchmarken einer einzelnen Ressource, sondern auch das einer
+  ganzen Folge von Ressourcen. Die Konfiguration dieser Folgen ist sehr 
+  detailliert möglich so sind insbesondere auch Wartezeiten zwischen zwei 
+  Aufrufen und das Gleichzeitige Aufrufen mehrerer Ressourcen zu einem Zeitpunkt
+  möglich, um so beispielsweise den Aufruf eines HTML Dokuments sowie aller
+  darin referenzierten JavaScript-, Bild- und 
+  Cascading Style Sheets (CSS)-Dateien zu simulieren.
+  
+  Mit dieser, in der httperf Dokumentation ``replay'' genannten,
+  Möglichkeit Folgen von Ressourcen zu benchmarken wäre es Möglich httperf als
+  Lastsimulationswerkzeug im Rahmen dieser Arbeit zu verwenden.
+  
     
+  \section{Glossar}
+  \begin{itemize}
+    \item Cascading Style Sheets
+    \item HTML
+    \item JavaScript
+    \item ab
+    \item httperf
+    \item faban
+    \item Markov Kette
+  \end{itemize}
 \end{document}
