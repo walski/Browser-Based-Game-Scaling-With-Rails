@@ -25,6 +25,40 @@
 \newpage
 
   \section{Lastmodell}
+  \subsection{Aufbau}
+  Aktionen im Spiel können von den Spielern nur durchgeführt werden, wenn sich
+  diese vorher am Spiel angemeldet haben. Auch das Lastmodell muss diese
+  Anmeldevorgänge abbilden. Wichtig ist dies vor allem für den Beginn einer
+  Lastsimulation. Es entspräche nicht dem realen Benutzerverhalten, wenn sich
+  schlagartig eine riesige Zahl an Benutzern am Spiel anmeldet. Daher ist das
+  Lastmodell in zwei Phasen aufgeteilt:
+  \begin{itemize}
+    \item Die Aufwärmphase
+    \item Die Lastphase
+  \end{itemize}
+  
+  \subsubsection{Aufwärmphase}
+  Die Aufwärmphase ist ein Zeitraum zu Beginn eines Lasttests, in dem nach und
+  nach Anmeldeanfragen als erste Aktion jeder Folge, an das Spiel gestellt 
+  werden und jede dieser angemeldeten Session auch schon die normalen, aus den 
+  Markov Ketten generierten, Spielaktionen durchführt. Jede Folge beginnt also 
+  mit einem Anmeldevorgang, diese starten aber zeitlich zufällig versetzt.
+  
+  Wichtig ist, dass während dieser Phase noch keine Lastdaten gesammelt werden,
+  da die Last noch stetig zunimmt. Sobald aber ein festgesetzter Prozentsatz der
+  simulierten Sessions am System angemeldet ist, markiert dies den Übergang in
+  die Lastphase.
+  
+  \subsubsection{Lastphase}
+  Die Lastphase ist die Phase der Lastsimulation, in der die Lastmessung 
+  stattfindet. Auch in ihr ist die Zahl der gleichzeitig am Spiel angemeldeten
+  Spieler (Concurrent User Sessions - CUS) nicht konstant, ist aber auch nicht
+  mehr stetig ansteigend. Dieser erste Anstieg, quasi das Anlaufen des Systems,
+  ist in der Aufwärmphase abgeschlossen. Die Lastphase simuliert also einen
+  glaubhaften Ausschnitt aus dem Betrieb eines Spiels in der die verschiedenen
+  Spieler bereits unterschiedlich lange angemeldet sind und daher an 
+  völlig verschiedenartige Aktionen durchführen.
+  
   \section{Lastsimulation}
   \subsection{Evaluation bestehender Werkzeuge}
   \subsubsection{Faban}
@@ -87,5 +121,7 @@
     \item httperf
     \item faban
     \item Markov Kette
+    \item Session
+    \item Concurrent User Sessions
   \end{itemize}
 \end{document}
