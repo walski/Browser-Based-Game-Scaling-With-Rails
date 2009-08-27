@@ -1,0 +1,40 @@
+\usepackage{color}
+\usepackage{framed}
+\usepackage{ifthen}
+
+\definecolor{quotegrey}{gray}{0.6}
+\definecolor{shadecolor}{gray}{.86}
+\newcommand{\referencedquote}[3]
+{
+  \parbox{\linewidth}{
+    \begin{shaded}
+      \vskip 0.5cm
+    
+      \begin{quotation}
+        \noindent
+        \smash{
+          \raisebox{-1em}{
+            \resizebox{2.5em}{!}{
+              \color{quotegrey}\fontsize{24}{24}\selectfont\bfseries``
+            }
+          }
+        }\
+        #1
+        \hfill
+        \smash{
+          \raisebox{-1.3em}{
+            \resizebox{2.5em}{!}{
+              \color{quotegrey}\fontsize{24}{24}\selectfont\bfseries''
+            }
+          }
+        }                           
+      \end{quotation}
+      \par\begin{flushright}#2
+      \ifthenelse{\equal{#3}{}}
+        {}
+        {\emph{#3}}
+  
+      \end{flushright}
+    \end{shaded}
+  }
+}
